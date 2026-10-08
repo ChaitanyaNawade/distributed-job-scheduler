@@ -1,7 +1,7 @@
 package com.chaitanya.distributed_job_scheduler.controller;
 
 import com.chaitanya.distributed_job_scheduler.dto.CreateJobRequest;
-import com.chaitanya.distributed_job_scheduler.entity.Job;
+import com.chaitanya.distributed_job_scheduler.dto.JobResponse;
 import com.chaitanya.distributed_job_scheduler.service.JobService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
@@ -20,19 +20,19 @@ public class JobController
 
 
     @PostMapping()
-    public Job saveJob(@Valid @RequestBody CreateJobRequest createJobRequest)
+    public JobResponse saveJob(@Valid @RequestBody CreateJobRequest createJobRequest)
     {
         return jobService.saveJob(createJobRequest);
     }
 
     @GetMapping()
-    public List<Job> getAllJobs()
+    public List<JobResponse> getAllJobs()
     {
         return jobService.getAllJobs();
     }
 
     @GetMapping("/{id}")
-    public Job getJobById(@PathVariable Long id)
+    public JobResponse getJobById(@PathVariable Long id)
     {
         return jobService.getJobById(id);
     }

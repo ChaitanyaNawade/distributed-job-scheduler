@@ -20,6 +20,15 @@ public class Job
     private int maxRetries;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private LocalDateTime nextAttempt;
+
+    public LocalDateTime getNextAttempt() {
+        return nextAttempt;
+    }
+
+    public void setNextAttempt(LocalDateTime nextAttempt) {
+        this.nextAttempt = nextAttempt;
+    }
 
     public Long getId() {
         return id;
@@ -114,6 +123,7 @@ public class Job
                 ", maxRetries=" + maxRetries +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
+                ", nextAttempt=" + nextAttempt +
                 '}';
     }
 }
